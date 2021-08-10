@@ -55,9 +55,10 @@ int firstStep(ifstream &programFile, vector<string> &program, int programStart, 
     //amount of commands line
     getline(programFile, line);
     int programSize = stoi(line);
+    cout << programSize<<endl;
     line.clear();
     
-    //symbol table lines
+    // //symbol table lines
     // string label;
     // string valueString;
     // int value;
@@ -69,6 +70,21 @@ int firstStep(ifstream &programFile, vector<string> &program, int programStart, 
     //     value = stoi(valueString);
     //     symbolHash.addToHash(label, value + programStart);
     // }
+
+
+    //symbol table lines
+    string label;
+    string valueString;
+    vector<string> labelLine;
+    int value;
+    while(getline(programFile, line)) {
+        tokenize(line,' ', labelLine);
+        label = labelLine[0];
+        value = stoi(labelLine[1]);
+        cout << label << value;
+        //symbolHash.addToHash(label, value + programStart);
+        line.clear();
+    }
 
     return 0;
 }
