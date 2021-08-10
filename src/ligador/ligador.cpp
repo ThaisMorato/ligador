@@ -77,16 +77,15 @@ int firstStep(ifstream &programFile, vector<string> &program, int programStart, 
     string valueString;
     vector<string> labelLine;
     int value;
+    
     while(getline(programFile, line)) {
         tokenize(line,' ', labelLine);
         label = labelLine[0];
         value = stoi(labelLine[1]);
-        cout << label << value;
-        //symbolHash.addToHash(label, value + programStart);
+        symbolHash.addToHash(label, value + programStart);
+        labelLine.clear();
         line.clear();
     }
-
-    return 0;
 }
 
 void secondStep(vector<string> &program, StringIntHash &symbolHash, string &machineCommands) {
