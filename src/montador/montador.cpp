@@ -19,7 +19,7 @@ int assemble(char *fileName) {
 }
 
 void genAssemblerOutput(string machineCommands, int machineCommandAmount, StringIntHash &symbolHash) {
-    cout << "MV-O\n";
+    //cout << "MV-O\n";
     cout << machineCommands << endl;
     cout << to_string(machineCommandAmount) << endl;
     for(auto it = symbolHash.hash.cbegin(); it != symbolHash.hash.cend(); ++it)
