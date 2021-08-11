@@ -19,8 +19,9 @@ int link(char *fileNames[], int fileAmount) {
 
 void genLinkerOutput(string machineCommands, int machineCommandAmount, StringIntHash &symbolHash) {
     int programBegin = symbolHash.getCorrespondent("main");
+    int loadBegin = 0;
     cout << "MV-EXE\n\n";
-    cout << to_string(machineCommandAmount) + " 0 999 " + to_string(programBegin) + "\n\n";
+    cout << to_string(machineCommandAmount) + " " + to_string(loadBegin) + " 999 " + to_string(programBegin + loadBegin - 1) + "\n\n";
     cout << machineCommands + "\n";
 }
 
@@ -33,11 +34,6 @@ int firstStep(ifstream &programFile, vector<string> &program, int programStart, 
     tokenize(line,' ', currentProgram);
     program.insert(program.end(), currentProgram.begin(), currentProgram.end());
     line.clear();
-
-    for(int i = 0; i < program.size(); i++) {
-        cout << program[i] << "|";
-    }
-    cout << endl;
 
     //amount of commands line
     getline(programFile, line);
