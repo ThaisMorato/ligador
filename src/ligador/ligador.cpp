@@ -34,6 +34,11 @@ int firstStep(ifstream &programFile, vector<string> &program, int programStart, 
     program.insert(program.end(), currentProgram.begin(), currentProgram.end());
     line.clear();
 
+    for(int i = 0; i < program.size(); i++) {
+        cout << program[i] << "|";
+    }
+    cout << endl;
+
     //amount of commands line
     getline(programFile, line);
     int programSize = stoi(line);
