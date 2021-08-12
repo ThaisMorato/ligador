@@ -19,9 +19,8 @@ int link(char *fileNames[], int fileAmount) {
 
 void genLinkerOutput(string machineCommands, int machineCommandAmount, StringIntHash &symbolHash) {
     int programBegin = symbolHash.getCorrespondent("main");
-    int loadBegin = 0;
     cout << "MV-EXE\n\n";
-    cout << to_string(machineCommandAmount) + " " + to_string(loadBegin) + " 999 " + to_string(programBegin + loadBegin - 1) + "\n\n";
+    cout << to_string(machineCommandAmount) + " 0 999 " + to_string(programBegin - 1) + "\n\n";
     cout << machineCommands + "\n";
 }
 
