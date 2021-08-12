@@ -1,0 +1,11 @@
+const0: WORD 0
+
+pp: WORD 0
+p: WORD 1
+result: WORD 0
+
+isOne: LOAD R1 const0
+STORE R1 result
+JUMP finish
+
+END

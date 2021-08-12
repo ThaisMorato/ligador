@@ -1,0 +1,32 @@
+
+main: READ R0               ; R0 <- N
+LOAD R2 const2
+SUB R0 R2                   ; R0 <- N - 2
+JN isOne
+JZ isTwo
+JUMP isGreater
+
+isTwo: LOAD R1 const1
+STORE R1 result
+JUMP finish
+
+isGreater: LOAD R1 const1   ; R1 é o contador de iterações
+loop: LOAD R2 pp
+LOAD R3 p
+ADD R2 R3
+STORE R3 pp
+STORE R2 p
+STORE R2 result
+
+; checa condição do loop
+COPY R2 R0
+SUB R2 R1                   ; confere se atingiu a última iteração
+JZ finish                   ; se sim, termina o programa
+
+CALL comparen
+
+finish: LOAD R3 result
+WRITE R3
+
+HALT
+END

@@ -1,0 +1,9 @@
+const1: WORD 1
+const2: WORD 2
+
+comparen:   LOAD R2 const1              ; se não
+            ADD R1 R2                   ; incrementa contador
+            JUMP loop                   ; faz mais uma iteração
+            RET
+
+END
